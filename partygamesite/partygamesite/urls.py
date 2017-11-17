@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls')),
     url(r'^memegame/', include('memegame.urls')),
     url(r'^songgame/', include('songgame.urls')),
+    url(r'^lobby/', include('lobbys.urls')),
 ]

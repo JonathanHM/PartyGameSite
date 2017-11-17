@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+  <h1>{{ lobby.lobbyid }}</h1>
+  <p class="quiet">
+    Anyone with this URL can join the room and chat:
+    <code>{{ request.scheme }}://{{ request.get_host }}/{{ lobby.lobbyid }}</code>
+  </p>
+  <form id="chatform">
+    <table id="chat">
+      <tbody>
+        {% for message in messages %}
+          <tr>
+            <td>{{ message.timestamp }}</td>
+            <td>{{ message.user }}</td>
+            <td>{{ message.message }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+      <tr>
+        <td>Say something:</td>
+        <td colspan=2>
+          <input id="message" type="text" placeholder="message">
+          <button type="submit" id="go">Say it</button>
+        </td>
+      </tfoot>
+    </table>
+  </form>
+{% endblock content %}
+
+{% block afterbody %}
+  <script type="text/javascript" src='{% static "lobbys/js/reconnecting-websocket.min.js" %}'></script>
+  <script type="text/javascript" src='{% static "lobbys/js/chat.js" %}'></script>
+{% endblock afterbody %}
