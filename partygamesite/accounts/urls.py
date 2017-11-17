@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from . import views
+from django.contrib.auth import views
 
 app_name = 'accounts'
 
