@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
     'accounts',
+    'memegame',
+    'songgame',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +126,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATIC_FILE_DIR,
 ]
+
+LOGIN_REDIRECT_URL = 'home'

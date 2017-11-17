@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Party Game Site{% endblock %}
+
+{% block content %}
+  <!-- <div class="jumbotron jumbotron-fluid" style="background-image: url({% static "img/index_jumbotron.jpg" %}); background-size: 100% 100%"> -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome to Party Game Site</h1>
+      {% if user.is_authenticated %}
+        <p class="lead">Click on the game you want to play!</p>
+        <hr class="my-4">
+        <h2 class="display-6">Meme game</h2>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url 'memegame:start' %}" role="button">Click here to play!</a>
+        </p>
+        <h2 class="display-6">Song game</h2>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url 'songgame:start' %}" role="button">Click here to play!</a>
+        </p>
+      {% else %}
+      <p class="lead">Please log in or sign up!</p>
+      <hr class="my-4">
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'accounts:login' %}" role="button">Log in</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'accounts:signup' %}" role="button">Sign up</a>
+      </p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

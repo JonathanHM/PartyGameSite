@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h2>Sign up</h2>
+    <form method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% buttons %}
+        <button type="submit" class="btn btn-primary">Sign up</button>
+      {% endbuttons %}
+    </form>
+  </div>
+
+  <script>
+    if (active_nav != "") {
+      $('#' + active_nav).toggleClass('active')
+    }
+    $('#signup_nav').toggleClass('active')
+    active_nav = "signup_nav"
+  </script>
+{% endblock %}
