@@ -1,1 +1,35 @@
-<h1>test</h1>
+{% extends "base.html" %}
+
+{% block title %}Meme game{% endblock %}
+
+{% block content %}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome to the memegame!</h1>
+      <p class="lead">Do you want to create a new lobby or join an existing lobby?</p>
+      <hr class="my-4">
+      <form method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-4">
+            <input class="form-control" type="text" name="lobby_code" id="lobby_code" placeholder="Write lobbycode">
+          </div>
+          <div class="col-md-8">
+            <button type="submit" class="btn btn-primary">Enter Lobby</button>
+          </div>
+        </div>
+      </form>
+      <p class="lead" style="margin-top:1em">
+        <a class="btn btn-warning btn-lg" href="#" role="button">Create Lobby</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    if (active_nav != "") {
+      $('#' + active_nav).toggleClass('active')
+    }
+    $('#memegame_nav').toggleClass('active')
+    active_nav = "memegame_nav"
+  </script>
+{% endblock %}
