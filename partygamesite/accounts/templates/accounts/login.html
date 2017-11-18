@@ -14,6 +14,9 @@
       {% endbuttons %}
     </form>
   </div>
+{% endblock content %}
+
+{% block aftercontent %}
   <script>
     if (active_nav != "") {
       $('#' + active_nav).toggleClass('active')
@@ -21,4 +24,4 @@
     $('#login_nav').toggleClass('active')
     active_nav = "login_nav"
   </script>
-{% endblock %}
+{% endblock aftercontent %}

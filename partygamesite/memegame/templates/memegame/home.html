@@ -24,7 +24,9 @@
       </p>
     </div>
   </div>
+{% endblock content %}
 
+{% block aftercontent %}
   <script>
     if (active_nav != "") {
       $('#' + active_nav).toggleClass('active')
@@ -32,4 +34,4 @@
     $('#memegame_nav').toggleClass('active')
     active_nav = "memegame_nav"
   </script>
-{% endblock %}
+{% endblock aftercontent %}
