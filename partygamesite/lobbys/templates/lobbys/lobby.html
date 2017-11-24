@@ -6,7 +6,7 @@
   <div class="container">
     <h1>{{ lobby.lobbyid }}</h1>
     <p class="quiet">
-      Anyone with this URL can join the room and chat:
+      Give this URL to ur friends, for them to join the lobby:
       <code>{{ request.scheme }}://{{ request.get_host }}/lobby/{{ lobby.lobbyid }}</code>
     </p>
     <p>
